@@ -21,7 +21,7 @@ public class Scalar extends Var{
         if (other instanceof Scalar scalar) {
             return new Scalar(this.value + scalar.value);
         }
-        return super.add(other);
+        return other.add(this);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class Scalar extends Var{
             return new Scalar(this.value - scalar.value);
         }
         Scalar minus = new Scalar(-1);
-        return super.sub(other).mul(minus);
+        return other.sub(this).mul(minus);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class Scalar extends Var{
         if (other instanceof Scalar scalar) {
             return new Scalar(this.value * scalar.value);
         }
-        return super.sub(other);
+        return other.mul(this);
     }
 
     @Override
